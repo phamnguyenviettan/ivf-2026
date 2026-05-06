@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embryo Time-Lapse | Spatio-Temporal Deep Learning</title>
+  <meta name="description" content="Enhancing Time-Lapse Embryo Monitoring in IVF with Spatio-Temporal Deep Learning">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./assets/index-BpbxdP4x.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/three-BI1XzQa6.js">
+  <link rel="stylesheet" crossorigin href="./assets/index-Bh6DkQIq.css">
+</head>
+<body>
+
+<!-- ════════════════════ Hero ════════════════════ -->
+<div class="hero">
+  <div class="relative z-[2] w-full max-w-content mx-auto px-10 md:px-10 max-md:px-5 flex items-center gap-10 max-md:flex-col">
+    <!-- Left: Text -->
+    <div class="hero-inner max-w-[580px] max-md:max-w-full flex-1">
+      <h1 class="text-5xl max-md:text-3xl font-extrabold leading-tight mb-3 tracking-tight" style="color: #1d1d1f; text-shadow: 0 1px 8px rgba(255,255,255,0.6);">
+        Enhancing Time-Lapse Embryo Monitoring in IVF with
+        <span class="text-primary">Spatio-Temporal Deep Learning</span>
+      </h1>
+      <p class="text-[17px] max-md:text-[15px] font-medium text-gray-600 leading-relaxed mb-8">
+        Automated morphokinetic stage classification using deep learning on time-lapse microscopy sequences for IVF embryo development monitoring.
+      </p>
+
+      <div class="link-buttons flex flex-wrap gap-2.5">
+        <a href="#sample" class="btn-primary"><i class="fa-solid fa-microscope"></i> View Demo</a>
+        <a href="https://github.com" target="_blank" rel="noopener" class="btn-outline"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="#results" class="btn-outline"><i class="fa-solid fa-chart-line"></i> Results</a>
+      </div>
+    </div>
+    <!-- Right: 3D Frame Stack -->
+    <div class="flex-1 flex justify-end max-md:justify-center max-md:max-w-full">
+      <div id="three-container" class="rounded-2xl border-2 border-primary/30 shadow-xl bg-white overflow-hidden" style="width: 320px; height: 320px;">
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="section-divider">
+
+<!-- ════════════════════ Content ════════════════════ -->
+<div class="max-w-content mx-auto px-10 max-md:px-5">
+
+<section id="abstract" class="pt-16 pb-12 border-b border-border/50">
+  <div class="grid grid-cols-12 gap-10">
+    <!-- Authors & Affiliations -->
+    <div class="col-span-12 lg:col-span-4">
+      <div class="sticky top-24">
+        <h3 class="text-xs font-bold uppercase tracking-widest text-primary mb-6">Authors & Affiliations</h3>
+        
+        <div class="space-y-6">
+          <div class="author-card">
+            <p class="text-[17px] font-bold text-[#1d1d1f] mb-1">
+              Thien Bao Nguyen-Tat<sup>1,2</sup>
+              <a href="https://orcid.org/0000-0002-4809-7126" target="_blank" class="text-primary/60 hover:text-primary transition-colors ml-1" title="ORCID">
+                <i class="fa-brands fa-orcid text-sm"></i>
+              </a>
+            </p>
+            <p class="text-xs font-medium text-muted mb-2">thienntb@uit.edu.vn</p>
+          </div>
+
+          <div class="author-card">
+            <p class="text-[17px] font-bold text-[#1d1d1f] mb-1">
+              Viet Tan Pham-Nguyen<sup>1,2</sup>
+              <a href="https://orcid.org/0009-0009-2605-449X" target="_blank" class="text-primary/60 hover:text-primary transition-colors ml-1" title="ORCID">
+                <i class="fa-brands fa-orcid text-sm"></i>
+              </a>
+            </p>
+            <p class="text-xs font-medium text-muted">tanpnv.20@grad.uit.edu.vn</p>
+          </div>
+        </div>
+
+        <div class="mt-10 pt-8 border-t border-border/50 space-y-4">
+          <p class="text-[13px] leading-relaxed text-muted">
+            <span class="font-bold text-[#4a4a52]">1.</span> University of Information Technology,<br>Ho Chi Minh City, Vietnam
+          </p>
+          <p class="text-[13px] leading-relaxed text-muted">
+            <span class="font-bold text-[#4a4a52]">2.</span> Vietnam National University,<br>Ho Chi Minh City, Vietnam
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Abstract Content -->
+    <div class="col-span-12 lg:col-span-8">
+      <div class="relative">
+        <span class="absolute -left-6 top-0 bottom-0 w-px bg-gradient-to-b from-primary/20 via-primary/5 to-transparent hidden lg:block"></span>
+        <h2 class="text-3xl font-extrabold tracking-tight mb-6" style="color: #1d1d1f;">Abstract</h2>
+        <div class="prose prose-slate max-w-none">
+          <p class="text-[18px] leading-[1.8] text-gray-600 font-medium italic mb-6">
+            Time-Lapse Imaging (TLI) technology has brought significant advancements to In Vitro Fertilization (IVF), providing abundant non-invasive data on embryo morphokinetics.
+          </p>
+          <p class="text-[16px] leading-[1.8] text-gray-600 mb-6">
+            Despite this, analyzing this vast amount of frame video data remains largely dependent on manual observation by clinicians, leading to subjective assessments and time-consuming processes. To address this challenge, our study proposes a two-stage deep learning system, comprising <span class="font-bold text-primary">Mamba2VisionMorph</span> and <span class="font-bold text-primary">EmbryoTemporalNet</span>, specifically designed for recognizing seven human embryo cell division stages.
+          </p>
+          <p class="text-[16px] leading-[1.8] text-gray-600 mb-6">
+            A core distinction of this research lies in the application of a rigorous patient-wise data splitting strategy, which completely eliminates the risk of data leakage during the testing phase. Experimental results on an independent test set of 70 raw time-lapse video sequences (21,264 labeled frames) show that the model achieves a <span class="font-bold text-[#1d1d1f]">Top-1 accuracy of 81.26%</span> and a <span class="font-bold text-[#1d1d1f]">Top-3 accuracy of 98.81%</span>, with a Macro F1 of 0.798 and a Weighted F1 of 0.811.
+          </p>
+          <p class="text-[16px] leading-[1.8] text-gray-600 mb-6">
+            The system performs well in classifying stages such as <span class="italic">t2</span> (F1 = 0.910) and <span class="italic">tM+</span> (F1 = 0.869). Furthermore, through the Grad-CAM visualization technique, the research demonstrates the model's ability to identify core morphological changes and filter out optical noise, thereby overcoming the limitations of static image assessment methods. The combination of high accuracy and inference transparency makes the proposed system an objective consultation tool, contributing to the standardization and quality improvement of clinical embryo assessment processes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sample" class="pt-20 pb-8 max-md:pt-12 max-md:pb-6" data-animate>
+  <div class="mb-14 max-md:mb-10 relative">
+    <div class="grid grid-cols-12 gap-x-10 gap-y-6 items-center">
+      <h2 class="col-span-12 lg:col-span-6 text-[2.75rem] max-md:text-[2rem] max-sm:text-[1.15rem] font-extrabold tracking-tight leading-[1.05] m-0" style="letter-spacing: -0.03em; color: #4a4a52;">
+        Sample Analysis:
+        <span class="relative inline-block">
+          <span class="italic relative z-[1]">CO119-8</span>
+          <span aria-hidden="true" class="absolute left-0 right-0 bottom-1 h-[10px] rounded-sm -z-0" style="background: rgba(59, 130, 246, 0.35);"></span>
+        </span>
+      </h2>
+      <div class="col-span-12 lg:col-span-6 relative lg:flex lg:justify-end min-w-0">
+        <div class="relative lg:max-w-[92%]">
+          <span aria-hidden="true" class="hidden lg:block absolute left-0 top-3 bottom-1 w-[3px] rounded-full bg-gradient-to-b from-primary via-primary/40 to-transparent"></span>
+          <p class="text-[17.5px] max-md:text-[16px] text-muted leading-[1.75] m-0 lg:pl-6 break-words">
+            469 time-lapse frames capturing complete embryo development from pronuclear stage through morula and blastocyst, with AI-predicted stage boundaries.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- ═══ Time-Lapse Viewer (Image Sequence) ═══ -->
+    <div class="mb-6">
+      <div class="bg-white border border-border rounded-2xl overflow-hidden relative" style="box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);">
+        <div class="flex max-md:flex-col">
+          <!-- Left: Image sequence player (fixed 224px) -->
+          <div class="relative bg-black flex items-center justify-center p-6 shrink-0">
+            <div id="embryo-player" class="relative" style="width: 224px; height: 224px;">
+              <img id="embryo-frame-img" src="static/CO119-8/raw/image/D2013.01.28_S0717_I132_WELL7_RUN1.jpeg" alt="Embryo frame" class="w-full h-full object-cover rounded-xl" style="border: 3px solid #a78bfa;">
+              <div id="embryo-loading" class="absolute inset-0 z-10 flex flex-col items-center justify-center bg-black/70 text-white rounded-xl hidden">
+                <div class="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin mb-2"></div>
+                <p class="text-xs font-medium">Loading...</p>
+              </div>
+            </div>
+            <span class="viewer-label">Time-Lapse · CO119-8</span>
+          </div>
+          <!-- Right: Controls + Info (takes remaining space) -->
+          <div class="flex-1 p-6 border-l border-border max-md:border-l-0 max-md:border-t flex flex-col">
+            <div class="mb-5 pb-3 border-b border-border/70">
+              <div class="flex items-center gap-2">
+                <span class="inline-block w-1 h-4 rounded-sm bg-primary/80"></span>
+                <p class="text-[17px] font-semibold text-primary m-0 leading-tight tracking-tight">Embryo Development Viewer</p>
+              </div>
+              <p class="text-[15px] text-light font-medium m-0 mt-1.5 ml-3">469 frames · 13 morphokinetic stages</p>
+            </div>
+
+            <!-- Playback controls -->
+            <div class="flex items-center gap-3 mb-4">
+              <button id="btn-play" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors">
+                <i class="fa-solid fa-play text-sm" id="play-icon"></i>
+              </button>
+              <div class="flex-1">
+                <input type="range" id="frame-slider" min="1" max="469" value="1" class="w-full accent-primary cursor-pointer">
+              </div>
+              <span id="frame-counter" class="text-xs font-mono font-semibold text-muted tabular-nums w-16 text-right">1 / 469</span>
+            </div>
+
+            <!-- Speed control -->
+            <div class="flex items-center gap-2 mb-6">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-light">Speed</span>
+              <button class="speed-btn active" data-speed="1">1×</button>
+              <button class="speed-btn" data-speed="2">2×</button>
+              <button class="speed-btn" data-speed="4">4×</button>
+              <button class="speed-btn" data-speed="8">8×</button>
+            </div>
+
+            <!-- Current stage indicator -->
+            <div class="flex-1 flex flex-col justify-center">
+              <div class="rounded-xl bg-[#f8fafa] border border-border/80 p-4">
+                <p class="text-[11px] font-bold uppercase tracking-wider text-light m-0 mb-2">Current Stage</p>
+                <p id="current-stage" class="text-2xl font-extrabold m-0" style="color: #4a4a52;">tPB2</p>
+                <p id="current-stage-range" class="text-sm text-muted m-0 mt-1">Frame 5 – 24</p>
+              </div>
+            </div>
+
+            <!-- Timeline bar -->
+            <div class="mt-4">
+              <div class="timeline-bar">
+                <div class="timeline-stage" style="left: 0%; width: 1.71%; background: #94a3b8;" title="tPB2"><span class="stage-label">tPB2</span></div>
+                <div class="timeline-stage" style="left: 1.71%; width: 2.99%; background: #60a5fa;" title="tPNa"><span class="stage-label">tPNa</span></div>
+                <div class="timeline-stage" style="left: 4.70%; width: 15.57%; background: #34d399;" title="tPNf"><span class="stage-label">tPNf</span></div>
+                <div class="timeline-stage" style="left: 20.27%; width: 1.71%; background: #fbbf24;" title="t2"><span class="stage-label">t2</span></div>
+                <div class="timeline-stage" style="left: 21.98%; width: 10.23%; background: #f97316;" title="t3"><span class="stage-label">t3</span></div>
+                <div class="timeline-stage" style="left: 32.21%; width: 0.85%; background: #f59e0b;" title="t4"><span class="stage-label">t4</span></div>
+                <div class="timeline-stage" style="left: 33.06%; width: 10.66%; background: #ec4899;" title="t5"><span class="stage-label">t5</span></div>
+                <div class="timeline-stage" style="left: 43.72%; width: 0.43%; background: #db2777;" title="t6"><span class="stage-label">t6</span></div>
+                <div class="timeline-stage" style="left: 44.15%; width: 2.99%; background: #8b5cf6;" title="t7"><span class="stage-label">t7</span></div>
+                <div class="timeline-stage" style="left: 47.14%; width: 0.85%; background: #7c3aed;" title="t8"><span class="stage-label">t8</span></div>
+                <div class="timeline-stage" style="left: 47.99%; width: 23.24%; background: #06b6d4;" title="t9+"><span class="stage-label">t9+</span></div>
+                <div class="timeline-stage" style="left: 71.23%; width: 20.04%; background: #14b8a6;" title="tM"><span class="stage-label">tM</span></div>
+                <div class="timeline-stage" style="left: 91.27%; width: 8.73%; background: #0d9488;" title="tSB"><span class="stage-label">tSB</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ Video + Model Architecture ═══ -->
+    <div class="mb-6">
+      <div class="bg-white border border-border rounded-2xl overflow-hidden" style="box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);">
+        <!-- Title -->
+        <div class="px-6 pt-5 pb-3 border-b border-border/70">
+          <div class="flex items-center gap-2">
+            <span class="inline-block w-1 h-4 rounded-sm bg-primary/80"></span>
+            <p class="text-[17px] font-semibold text-primary m-0 leading-tight tracking-tight">Embryo Development Time-Lapse</p>
+          </div>
+          <p class="text-[14px] text-light font-medium m-0 mt-1.5 ml-3">Sample CO119-8 · 469 frames captured over ~5 days</p>
+        </div>
+        <!-- Video — 50% width, centered, with controls -->
+        <div class="flex flex-col items-center py-6 bg-black/5">
+          <div class="relative w-1/2 max-md:w-full max-md:px-4">
+            <video id="hero-video" autoplay loop muted playsinline preload="auto" class="w-full rounded-xl border border-border shadow-md" style="aspect-ratio: 860/500; object-fit: contain; background: #000;">
+              <source src="/static/CO119-8/video.mp4" type="video/mp4">
+              <source src="static/CO119-8/video.mp4" type="video/mp4">
+            </video>
+          </div>
+          <!-- Video controls -->
+          <div class="flex items-center gap-3 mt-4">
+            <button id="video-play-btn" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors" title="Play/Pause">
+              <i class="fa-solid fa-pause text-xs" id="video-play-icon"></i>
+            </button>
+            <button id="video-restart-btn" class="inline-flex items-center justify-center w-9 h-9 rounded-full border border-border bg-white text-muted hover:text-primary hover:border-primary/50 transition-colors" title="Restart">
+              <i class="fa-solid fa-rotate-left text-xs"></i>
+            </button>
+            <div class="flex items-center gap-2 ml-2">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-light">Speed</span>
+              <button class="video-speed-btn" data-vspeed="0.5">0.5×</button>
+              <button class="video-speed-btn active" data-vspeed="1">1×</button>
+              <button class="video-speed-btn" data-vspeed="2">2×</button>
+            </div>
+          </div>
+        </div>
+        <!-- Model Architecture -->
+        <div class="p-6 border-t border-border">
+          <div class="mb-4 flex items-center gap-3">
+            <span class="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full text-[12px] font-bold uppercase tracking-[0.15em] text-white" style="background: linear-gradient(135deg, #3B82F6, #6366f1);">
+              <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+              Architecture
+            </span>
+            <span class="text-[15px] font-semibold text-[#4a4a52]">Mamba2VisionMorph + EmbryoTemporalNet</span>
+          </div>
+          <img src="static/model.png" alt="Model Architecture" class="architecture-img" onclick="openLightbox(this)">
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ GradCAM Attention Maps ═══ -->
+    <div class="mt-8 mb-6">
+      <div class="mb-6">
+        <h3 class="text-[1.75rem] max-md:text-[1.35rem] font-extrabold tracking-tight m-0 mb-2" style="background: linear-gradient(135deg, #3B82F6, #8b5cf6, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+          GradCAM Attention Maps
+        </h3>
+        <p class="text-[15px] text-muted leading-relaxed m-0">
+          Gradient-weighted Class Activation Mapping shows where the model focuses when predicting each stage. Warmer colors = higher attention.
+        </p>
+      </div>
+      <div class="rounded-2xl border border-border bg-white overflow-hidden" style="box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);">
+        <div id="gradcam-slider" class="relative overflow-hidden">
+          <div id="gradcam-track" class="flex transition-transform duration-500 ease-in-out">
+            <div class="gradcam-slide shrink-0 w-full p-4">
+              <img src="static/CO119-8/gradcam_class_0_1-tpnf.png" alt="GradCAM tPNf" class="w-full object-contain rounded-lg cursor-pointer" style="aspect-ratio: 2205/1079;" onclick="openLightbox(this)">
+              <p class="text-center text-[13px] font-semibold text-muted mt-3 m-0">Class 0 — <span class="text-primary">tPNf</span></p>
+            </div>
+            <div class="gradcam-slide shrink-0 w-full p-4">
+              <img src="static/CO119-8/gradcam_class_1_2-t2.png" alt="GradCAM t2" class="w-full object-contain rounded-lg cursor-pointer" style="aspect-ratio: 2205/1079;" onclick="openLightbox(this)">
+              <p class="text-center text-[13px] font-semibold text-muted mt-3 m-0">Class 1 — <span class="text-primary">t2</span></p>
+            </div>
+            <div class="gradcam-slide shrink-0 w-full p-4">
+              <img src="static/CO119-8/gradcam_class_2_3-t3+.png" alt="GradCAM t3+" class="w-full object-contain rounded-lg cursor-pointer" style="aspect-ratio: 2205/1079;" onclick="openLightbox(this)">
+              <p class="text-center text-[13px] font-semibold text-muted mt-3 m-0">Class 2 — <span class="text-primary">t3+</span></p>
+            </div>
+            <div class="gradcam-slide shrink-0 w-full p-4">
+              <img src="static/CO119-8/gradcam_class_3_5-t5+.png" alt="GradCAM t5+" class="w-full object-contain rounded-lg cursor-pointer" style="aspect-ratio: 2205/1079;" onclick="openLightbox(this)">
+              <p class="text-center text-[13px] font-semibold text-muted mt-3 m-0">Class 3 — <span class="text-primary">t5+</span></p>
+            </div>
+            <div class="gradcam-slide shrink-0 w-full p-4">
+              <img src="static/CO119-8/gradcam_class_4_7-t7+.png" alt="GradCAM t7+" class="w-full object-contain rounded-lg cursor-pointer" style="aspect-ratio: 2205/1079;" onclick="openLightbox(this)">
+              <p class="text-center text-[13px] font-semibold text-muted mt-3 m-0">Class 4 — <span class="text-primary">t7+</span></p>
+            </div>
+            <div class="gradcam-slide shrink-0 w-full p-4">
+              <img src="static/CO119-8/gradcam_class_5_9-t9+.png" alt="GradCAM t9+" class="w-full object-contain rounded-lg cursor-pointer" style="aspect-ratio: 2205/1079;" onclick="openLightbox(this)">
+              <p class="text-center text-[13px] font-semibold text-muted mt-3 m-0">Class 5 — <span class="text-primary">t9+</span></p>
+            </div>
+            <div class="gradcam-slide shrink-0 w-full p-4">
+              <img src="static/CO119-8/gradcam_class_6_10-tm+.png" alt="GradCAM tM+" class="w-full object-contain rounded-lg cursor-pointer" style="aspect-ratio: 2205/1079;" onclick="openLightbox(this)">
+              <p class="text-center text-[13px] font-semibold text-muted mt-3 m-0">Class 6 — <span class="text-primary">tM+</span></p>
+            </div>
+          </div>
+        </div>
+        <!-- Slider controls -->
+        <div class="flex items-center justify-center gap-3 pb-4">
+          <button id="gradcam-prev" class="inline-flex items-center justify-center w-8 h-8 rounded-full border border-border bg-white text-muted hover:text-primary hover:border-primary/50 transition-colors">
+            <i class="fa-solid fa-chevron-left text-xs"></i>
+          </button>
+          <div id="gradcam-dots" class="flex items-center gap-2">
+            <button class="gradcam-dot active" data-slide="0"></button>
+            <button class="gradcam-dot" data-slide="1"></button>
+            <button class="gradcam-dot" data-slide="2"></button>
+            <button class="gradcam-dot" data-slide="3"></button>
+            <button class="gradcam-dot" data-slide="4"></button>
+            <button class="gradcam-dot" data-slide="5"></button>
+            <button class="gradcam-dot" data-slide="6"></button>
+          </div>
+          <button id="gradcam-next" class="inline-flex items-center justify-center w-8 h-8 rounded-full border border-border bg-white text-muted hover:text-primary hover:border-primary/50 transition-colors">
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ Results: Prediction Chart (full width) ═══ -->
+    <div id="results" class="mt-12 mb-6">
+      <div class="rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #7c3aed, #6d28d9); box-shadow: 0 4px 24px rgba(124, 58, 237, 0.2);">
+        <div class="p-8 max-md:p-5">
+          <div class="mb-5">
+            <h3 class="text-[1.5rem] font-extrabold text-white m-0 mb-1">Stage Prediction Results</h3>
+            <p class="text-[15px] text-white/70 font-medium m-0">Softmax probabilities per frame from trained spatio-temporal classifier</p>
+          </div>
+          <div class="rounded-xl overflow-hidden bg-white cursor-pointer" onclick="openLightbox(this.querySelector('img'))">
+              <img src="static/CO119-8/chart.png" alt="Stage prediction chart" class="results-chart">
+          </div>
+        </div>
+      </div>
+    </div>
+
+</section>
+</div>
+
+<footer class="mt-20 border-t border-border bg-[#f8fafa] py-16">
+  <div class="max-w-content mx-auto px-10 max-md:px-5">
+    <div class="grid grid-cols-12 gap-10">
+      <div class="col-span-12 lg:col-span-6">
+        <div class="flex items-center gap-2.5 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white">
+            <i class="fa-solid fa-microscope text-sm"></i>
+          </div>
+          <span class="text-xl font-bold tracking-tight text-[#1d1d1f]">EmbryoTimeLapse AI</span>
+        </div>
+        <p class="text-[14px] leading-relaxed text-muted max-w-sm">
+          Advancing IVF embryo monitoring through state-of-the-art spatio-temporal deep learning and causal sequence modeling.
+        </p>
+      </div>
+      
+      <div class="col-span-12 lg:col-span-3">
+        <h4 class="text-xs font-bold uppercase tracking-widest text-primary mb-5">Quick Links</h4>
+        <ul class="space-y-3 p-0 list-none m-0">
+          <li><a href="#abstract" class="text-[14px] font-medium text-muted hover:text-primary transition-colors no-underline">Abstract</a></li>
+          <li><a href="#sample" class="text-[14px] font-medium text-muted hover:text-primary transition-colors no-underline">Demo Analysis</a></li>
+          <li><a href="#results" class="text-[14px] font-medium text-muted hover:text-primary transition-colors no-underline">Research Results</a></li>
+        </ul>
+      </div>
+
+      <div class="col-span-12 lg:col-span-3">
+        <h4 class="text-xs font-bold uppercase tracking-widest text-primary mb-5">Connect</h4>
+        <div class="flex gap-4">
+          <a href="https://github.com/phamnguyenviettan" target="_blank" class="w-10 h-10 rounded-full border border-border bg-white flex items-center justify-center text-muted hover:text-primary hover:border-primary/50 transition-all" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="mailto:tanpnv.20@grad.uit.edu.vn" class="w-10 h-10 rounded-full border border-border bg-white flex items-center justify-center text-muted hover:text-primary hover:border-primary/50 transition-all" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-16 pt-8 border-t border-border/50 flex flex-wrap justify-between items-center gap-4">
+      <p class="text-xs font-medium text-gray-400 m-0">
+        © 2026 Embryo Time-Lapse Morphokinetic Analysis. All rights reserved.
+      </p>
+      <p class="text-xs font-semibold text-gray-400 m-0 flex items-center gap-2">
+        Made with <i class="fa-solid fa-heart text-red-400 animate-pulse"></i> by 
+        <a href="https://sites.google.com/view/ds-medlab/" target="_blank" class="text-gray-500 hover:text-primary transition-colors no-underline font-bold">DS-MED LAB</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
